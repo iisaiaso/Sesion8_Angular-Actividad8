@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+nombre!:string
+apellido!:string
+edad!:string
+capturar(nam:string, ape:string, eda:string){
 
+}
 }

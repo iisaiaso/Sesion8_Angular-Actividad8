@@ -1,14 +1,41 @@
-<div class="container mt-5">
-  <div class="form">
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="form" style="width: 400px">
     <div class="mb-3">
-      <input class="form-control" type="text" />
+      <label for="">Nombre</label>
+      <input class="form-control" type="text"  #nom/>
     </div>
+    <label for="">Apellido</label>
     <div class="mb-3">
-      <input class="form-control" type="text" />
+      <input class="form-control" type="text"  #ape/>
     </div>
+    <label for="">Edad</label>
     <div class="mb-3">
-      <input class="form-control" type="text" />
+      <input class="form-control" type="text" #edad />
+    </div>
+    <div>
+      <button class="btn btn-success" (click)="capturar(nom.value, ape.value, edad.value)">Enviar</button>
     </div>
   </div>
 </div>
 <hr />
+<br />
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th escpope="col">Nombre</th>
+        <th escpope="col">Apellido</th>
+        <th escpope="col">Edad</th>
+        <th escpope="col">Condicion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
