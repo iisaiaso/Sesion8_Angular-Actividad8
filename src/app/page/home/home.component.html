@@ -1,40 +1,51 @@
-<div class="container mt-5 d-flex justify-content-center">
-  <div class="form" style="width: 400px">
+<div class="container con mt-3 d-flex justify-content-center">
+  <div class="form p-3" style="width: 400px">
     <div class="mb-3">
       <label for="">Nombre</label>
-      <input class="form-control" type="text"  #nom/>
+      <input class="form-control" type="text" #nom />
     </div>
     <label for="">Apellido</label>
     <div class="mb-3">
-      <input class="form-control" type="text"  #ape/>
+      <input class="form-control" type="text" #ape />
     </div>
     <label for="">Edad</label>
     <div class="mb-3">
       <input class="form-control" type="text" #edad />
     </div>
-    <div>
-      <button class="btn btn-success" (click)="capturar(nom.value, ape.value, edad.value)">Enviar</button>
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-success"
+        (click)="capturar(nom.value, ape.value, edad.value)">
+        Enviar
+      </button>
     </div>
   </div>
 </div>
-<hr />
-<br />
 <div class="container">
-  <table class="table">
-    <thead>
+  <hr />
+  <table class="table table-striped">
+    <thead align="center">
       <tr>
-        <th escpope="col">Nombre</th>
-        <th escpope="col">Apellido</th>
-        <th escpope="col">Edad</th>
-        <th escpope="col">Condicion</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Condición</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    <tbody align="center">
+      <tr *ngFor="let x of data">
+        <td>{{ x.nombre }}</td>
+        <td>{{ x.apellido }}</td>
+        <td>{{ x.edad }}</td>
+        <td>
+          <p *ngIf="x.edad >= 18; else menor">
+            {{ x.nombre }} {{ x.apellido }} Es mayor de edad
+          </p>
+          <ng-template #menor
+            ><p>
+              {{ x.nombre }} {{ x.apellido }} Es menor de edad
+            </p></ng-template>
+        </td>
       </tr>
     </tbody>
   </table>
